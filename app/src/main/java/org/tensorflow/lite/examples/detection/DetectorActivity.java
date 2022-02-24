@@ -344,7 +344,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
                                 });
 
                         /** Custom **/
-                        if (tts != null) {
+                        if (tts != null && ! tts.IsSpeaking()) {
                             readDetectedData(results);
                         }
                     }
@@ -392,10 +392,10 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
 
         if (dataIndex != -1) {
             String englishLabel = labelTable.get(dataIndex);
-            System.out.println("test::::::"+englishLabel);
             String koreanLabel = koreanLabelTable.get(englishLabel);
             tts.readText(temp+"에"+koreanLabel+"있습니다.");
-            //tts.readDelay();
+            //getDelay();
+
 
         }
     }
@@ -404,6 +404,10 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
         if (recognitions.size() == 0) { return -1; }
         int randData = ThreadLocalRandom.current().nextInt(0, recognitions.size());
         return recognitions.get(randData).getDetectedClass();
+    }
+
+    private void getDelay() {
+        tts.readDelay();
     }
 
     private ArrayList<ArrayList<Double>> getDetectedDataLocation(List<Classifier.Recognition> recognitions) {

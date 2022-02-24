@@ -24,10 +24,10 @@ public class VoiceOption extends AppCompatActivity {
     private EditText editText;
     private TextView random, random2;
     private Button voicebutton,voicehigh,voicelow,voicefast,voiceslow;
-    private final double border_Left=(double)1/640*212;
-    private final double border_Lower=(double)1/640*212;
-    private final double border_Right=(double)1/640*426;
-    private final double border_Top=(double)1/640*426;
+    private final double border_Left=(double)212;
+    private final double border_Lower=(double)212;
+    private final double border_Right=(double)426;
+    private final double border_Top=(double)426;
 
 
     @Override

@@ -30,14 +30,17 @@ public class TextToSpeech {
 
     public void readText(String text) {
         tts.speak(text, android.speech.tts.TextToSpeech.QUEUE_FLUSH, null, text);
-        tts.playSilence(10000, android.speech.tts.TextToSpeech.QUEUE_ADD,null);
+
 
     }
     public void readDelay() {
-        tts.speak("하이요", android.speech.tts.TextToSpeech.QUEUE_FLUSH, null);
-        tts.playSilence(1000, android.speech.tts.TextToSpeech.QUEUE_ADD,null);
-        //tts.speak("바이요", android.speech.tts.TextToSpeech.QUEUE_FLUSH, null);
 
+        tts.playSilence(5000, android.speech.tts.TextToSpeech.QUEUE_ADD,null);
+
+
+    }
+    public boolean IsSpeaking(){
+        return tts.isSpeaking();
     }
 
     public void readGPs(String text){
