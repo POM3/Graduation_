@@ -51,15 +51,14 @@ public class TextToSpeech {
     public String inputLocation(ArrayList<Double> location) {
         ArrayList<Double> i= location;
 
-        double x_median=i.get(0);
-        double y_median=i.get(1);
+        double x_median=i.get(1);
+        double y_median=i.get(0);
         double height=i.get(2);
         double width=i.get(3);
 
-        System.out.println("test:"+i.get(0));
-        System.out.println("test:"+i.get(1));
-        System.out.println("test:"+i.get(2));
-        System.out.println("test:"+i.get(3));
+        System.out.println("x_median test:"+i.get(0));
+        System.out.println("y_median test:"+i.get(1));
+
 
         String Temp="";
 

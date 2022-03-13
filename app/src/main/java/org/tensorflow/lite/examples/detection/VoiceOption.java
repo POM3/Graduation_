@@ -23,7 +23,7 @@ public class VoiceOption extends AppCompatActivity {
     private TextToSpeech tts;
     private EditText editText;
     private TextView random, random2;
-    private Button voicebutton,voicehigh,voicelow,voicefast,voiceslow;
+    private Button voicehigh,voicelow,voicefast,voiceslow;
     private final double border_Left=(double)212;
     private final double border_Lower=(double)212;
     private final double border_Right=(double)426;
@@ -34,15 +34,15 @@ public class VoiceOption extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_voice_option);
-        editText=(EditText)  findViewById(R.id.editText);
-        voicebutton=(Button) findViewById(R.id.voicebutton);
+
+
         voicehigh=(Button) findViewById(R.id.voicehigh);
         voicelow=(Button) findViewById(R.id.voicelow);
         voicefast=(Button) findViewById(R.id.voicefast);
         voiceslow=(Button) findViewById(R.id.voiceslow);
 
-        random=(TextView) findViewById(R.id.random);
-        random2=(TextView) findViewById(R.id.random2);
+        //random=(TextView) findViewById(R.id.random);
+        //random2=(TextView) findViewById(R.id.random2);
 
         Map<Integer, String> obstacles = new HashMap<Integer, String>(){{ // Obstcacle dictionary
             put(0,"트럭");
@@ -68,7 +68,7 @@ public class VoiceOption extends AppCompatActivity {
             put(20,"인도");
         }};
 
-        Random randnumber = new Random();
+       /* Random randnumber = new Random();
         randnumber.setSeed(System.currentTimeMillis());
         double randx_median = randnumber.nextDouble();
         double randy_median = randnumber.nextDouble();
@@ -80,7 +80,7 @@ public class VoiceOption extends AppCompatActivity {
         String direction = inputLocation(randx_median,randy_median,rand_height,rand_width);
 
         random.setText(randx_median +"\n" + randy_median +"\n" + rand_height +"\n" + rand_width);
-        random2.setText("방향:"+direction+"\n" +"장애물:"+ obstacles.get(obsNumber));
+        random2.setText("방향:"+direction+"\n" +"장애물:"+ obstacles.get(obsNumber)); */
 
 
         //TTS 생성후, OnInitListener로 초기화
@@ -93,13 +93,7 @@ public class VoiceOption extends AppCompatActivity {
             }
         });
 
-        voicebutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view){
-                //editText 문장 읽기
-                tts.speak(obstacles.get(obsNumber)+" "+direction+"에 있습니다.", TextToSpeech.QUEUE_FLUSH, null);
-            }
-        });
+
 
         voicehigh.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,7 +101,7 @@ public class VoiceOption extends AppCompatActivity {
                 tts.setPitch(2.0f); //음성 톤 두배로 올림
                 //tts.setSpeechRate(1.0f);    //읽는 속도 기본 설정
                 //editText 문장 읽기
-                tts.speak(obstacles.get(obsNumber)+" "+direction+"에 있습니다.", TextToSpeech.QUEUE_FLUSH, null);
+                tts.speak("테스트 음성 입니다.", TextToSpeech.QUEUE_FLUSH, null);
             }
         });
 
@@ -117,7 +111,7 @@ public class VoiceOption extends AppCompatActivity {
                 tts.setPitch(0.5f); //음성 톤 절반으로 낮춤
                 //tts.setSpeechRate(1.0f);    //읽는 속도 기본 설정
                 //editText 문장 읽기
-                tts.speak(obstacles.get(obsNumber)+" "+direction+"에 있습니다.", TextToSpeech.QUEUE_FLUSH, null);
+                tts.speak("테스트 음성 입니다.", TextToSpeech.QUEUE_FLUSH, null);
             }
         });
 
@@ -127,7 +121,7 @@ public class VoiceOption extends AppCompatActivity {
                 //tts.setPitch(1.0f); //음성 톤 기본 설정
                 tts.setSpeechRate(2.0f);    //읽는 속도 2배 빠르게
                 //editText 문장 읽기
-                tts.speak(obstacles.get(obsNumber)+" "+direction+"에 있습니다.", TextToSpeech.QUEUE_FLUSH, null);
+                tts.speak("테스트 음성 입니다.", TextToSpeech.QUEUE_FLUSH, null);
             }
         });
 
@@ -137,11 +131,11 @@ public class VoiceOption extends AppCompatActivity {
                 //tts.setPitch(1.0f); //음성 톤 기본 설정
                 tts.setSpeechRate(0.5f);    //읽는 속도 2배 느리게
                 //editText 문장 읽기
-                tts.speak(obstacles.get(obsNumber)+" "+direction+"에 있습니다.", TextToSpeech.QUEUE_FLUSH, null);
+                tts.speak("테스트 음성 입니다.", TextToSpeech.QUEUE_FLUSH, null);
             }
         });
     }
-
+ /*
     private String inputLocation(double x_median, double y_median, double height, double width) {
         String Temp="";
 
@@ -172,7 +166,7 @@ public class VoiceOption extends AppCompatActivity {
         else System.out.println("label value error");
 
         return Temp;
-    }
+    }   */
 
     @Override
     protected void onDestroy() {

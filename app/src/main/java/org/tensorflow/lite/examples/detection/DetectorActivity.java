@@ -386,8 +386,8 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
         ArrayList<ArrayList<Double>> detectedLocations= getDetectedDataLocation(recognitions);
         for(ArrayList<Double> i : detectedLocations){
             temp=tts.inputLocation(i);
-
         }
+
 
 
         if (dataIndex != -1) {
